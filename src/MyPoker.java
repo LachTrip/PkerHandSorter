@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -11,12 +10,11 @@ public class MyPoker {
     static int wins2 = 0;
     public static void main(String[] args) {
         try {
-            if(args.length == 0){
-                din = new BufferedReader(new InputStreamReader(System.in));
-            } else {
-                din = new BufferedReader(new FileReader(args[0]));
-            }
+            din = new BufferedReader(new InputStreamReader(System.in));
             while ((line = din.readLine()) != null){
+                if(line.length() == 0) {
+                    break;
+                }
                 game = new Game(line);
                 if (game.getWinner() != 0) {
                     if (game.getWinner() == 1) {
